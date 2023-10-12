@@ -5,3 +5,5 @@ build
 .local_history
 .DS_Store
 #-----------end-------------------------------------------------
+temp_build
+compile_commands.json

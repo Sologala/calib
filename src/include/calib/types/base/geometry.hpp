@@ -4,9 +4,11 @@
 
 namespace calib
 {
-using Point2 = cv::Point2d;
+using Point2 = cv::Point2f;
 using Point2i = cv::Point2i;
-using Rect = cv::Rect2d;
+using Point3 = cv::Point3f;
+using Point3i = cv::Point3i;
+using Rect = cv::Rect2f;
 using Recti = cv::Rect2i;
 template <typename Scalar>
 

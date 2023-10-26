@@ -1,7 +1,10 @@
 add_subdirectory(utils)
 
 
-add_library(core ./core/core.cpp)
+add_library(core 
+    ./core/core.cpp
+    ./core/pattern_detect/opencv_checkboard.cpp
+    )
     
 message(${CMAKE_CURRENT_LIST_DIR}/include)
 target_include_directories(

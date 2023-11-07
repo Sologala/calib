@@ -1,3 +1,6 @@
 [submodule "src/utils/fmt"]
 	path = src/utils/fmt
 	url = https://github.com/fmtlib/fmt.git
+[submodule "apps/widget/QTPropertyEditor"]
+	path = apps/widget/QTPropertyEditor
+	url = https://github.com/Sologala/QTPropertyEditor.git

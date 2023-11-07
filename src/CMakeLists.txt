@@ -1,6 +1,5 @@
 add_subdirectory(utils)
 
-
 add_library(core 
     ./core/core.cpp
     ./core/pattern_detect/opencv_checkboard.cpp
@@ -20,4 +19,3 @@ target_link_libraries(
     utils
     Eigen3::Eigen
 )
-

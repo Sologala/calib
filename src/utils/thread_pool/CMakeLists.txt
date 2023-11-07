@@ -1,17 +1,9 @@
-
-
-set(LIBRARY_NAME thread_pool)
-set(HEADER_ONLY 1)
-
-# Set HEADERS_PUBLIC variable (public headers, included in the library)
-set(HEADERS_PUBLIC
-    thread_pool.hpp
+add_library(thread_pool INTERFACE)
+target_include_directories(thread_pool INTERFACE
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>
+    $<INSTALL_INTERFACE:include>
 )
-# Set HEADERS_PRIVATE variable, if needed.
-# (these private headers won't be included in the library)
-# set(HEADERS_PRIVATE
-#     foo_private.h
-# )
 
-include(${PROJECT_SOURCE_DIR}/cmake/LibraryConfig.cmake)
-
+# 设置库的安装路径
+install(TARGETS thread_pool DESTINATION lib)
+install(FILES ./thread_pool.hpp DESTINATION include)

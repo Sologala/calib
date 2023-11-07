@@ -23,7 +23,6 @@ inline bool makedir(const std::string &file_path)
 }
 
 #if __LINUX__
-
 // #define USE_BOOST_FILESYSTEM 1
 // #ifdef USE_BOOST_FILESYSTEM
 #include <boost/filesystem.hpp>

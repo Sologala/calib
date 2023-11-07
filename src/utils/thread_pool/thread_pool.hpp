@@ -10,7 +10,8 @@
 #include <stdexcept>
 #include <thread>
 #include <vector>
-namespace MCVSLAM
+
+namespace calib
 {
 	class ThreadPool
 	{

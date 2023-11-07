@@ -4,6 +4,7 @@ build
 .vscode
 .local_history
 .DS_Store
+.clangd
 #-----------end-------------------------------------------------
 temp_build
 compile_commands.json

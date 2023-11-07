@@ -26,7 +26,7 @@ PointCloudOpenGLWidget::~PointCloudOpenGLWidget()
     m_shaderProgramPoint.release();
 
     doneCurrent();
-    qDebug() << __FUNCTION__;
+    /* qDebug() << __FUNCTION__; */
 }
 void PointCloudOpenGLWidget::clean()
 {
@@ -53,7 +53,6 @@ void PointCloudOpenGLWidget::addPoints(const QVector<QVector3D> &points)
         m_pointData.push_back(vector3D.x());
         m_pointData.push_back(vector3D.y());
         m_pointData.push_back(vector3D.z());
-        qDebug() << vector3D;
         m_pointData.push_back(1);
     }
     m_pointCount = drawPointdata(m_pointData);

@@ -87,7 +87,6 @@ MainWindow::~MainWindow()
 
 void MainWindow::randomPointsClicked()
 {
-    qDebug() << "creante pts ";
     pt_gl_widget->addPoints(generateRandomPointCloud1(1000));
 }
 
@@ -107,15 +106,11 @@ void MainWindow::onItemChanged(QTreeWidgetItem *item, int column)
     std::map<const std::string, std::function<void(CBaseProperty *)>> prop_map;
 
 #define PROP_MAP(_name, _type, _var)                                                                                   \
-    prop_map[_name] = [&](CBaseProperty *prop) {                                                                      \
-        *_var = prop->getVariantValue().value<_type>();                                                                \
-    };
+    prop_map[_name] = [&](CBaseProperty *prop) { *_var = prop->getVariantValue().value<_type>(); };
 
     PROP_MAP("pointcloud_size", int, &pt_gl_conf.pointcloud_size);
     PROP_MAP("pointcloud_color", QColor, &pt_gl_conf.pointcloud_color);
     PROP_MAP("pointcloud_show", bool, &pt_gl_conf.pointcloud_show);
-
-    qDebug() << prop_map.size();
 
     CBaseProperty *prop = dynamic_cast<CBaseProperty *>(item);
     if (prop == nullptr)
@@ -126,7 +121,6 @@ void MainWindow::onItemChanged(QTreeWidgetItem *item, int column)
     {
         if (prop_map.count(prop_id))
         {
-            /* qDebug() << "key " << prop_id.c_str() << " trigger"; */
             auto &f = prop_map[prop_id];
             f(prop);
         }

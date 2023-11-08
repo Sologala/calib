@@ -4,6 +4,7 @@
 [submodule "apps/widget/QTPropertyEditor"]
 	path = apps/widget/QTPropertyEditor
 	url = https://github.com/Sologala/QTPropertyEditor.git
-[submodule "3rdparty/matplotlib-cpp/matplotlib-cpp"]
-	path = 3rdparty/matplotlib-cpp/matplotlib-cpp
-	url = https://github.com/lava/matplotlib-cpp.git
+[submodule "3rdparty/matplotlib-cpp"]
+	path = 3rdparty/matplotlib-cpp
+	url = https://github.com/Sologala/matplotlib-cpp.git
+	branch = fix_py3_subplot

@@ -1,8 +1,8 @@
 #pragma once
-#include <calib/core/camera/rect/rectify.hpp>
-#include <calib/marco/marco.hpp>
+#include <utils/marco/marco.hpp>
 #include <calib/types/base/geometry.hpp>
 #include <ceres/ceres.h>
+
 namespace calib
 {
 enum class ModelType : uint

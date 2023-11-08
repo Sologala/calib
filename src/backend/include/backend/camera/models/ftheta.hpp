@@ -1,5 +1,6 @@
 #pragma once
-#include <calib/core/camera/models/cam_model.hpp>
+#include <backend/camera/models/cam_model.hpp>
+
 namespace calib
 {
 

@@ -8,6 +8,24 @@ target_include_directories(timer PUBLIC
 )
 
 # 设置库的安装路径
-install(TARGETS timer DESTINATION lib)
-install(FILES ./include/timer.hpp ./include/timer.hpp DESTINATION include)
+
+set(COMPONENT_NAME timer)
+
+install(FILES ./include/timer.hpp ./include/timer.hpp DESTINATION ${PROJECT_NAME}/include)
+
+install(
+  TARGETS ${COMPONENT_NAME}
+  EXPORT ${COMPONENT_NAME}Config
+  ARCHIVE
+  LIBRARY
+  COMPONENT ${COMPONENT_NAME}
+)
+
+install(
+  EXPORT ${COMPONENT_NAME}Config
+  DESTINATION lib/cmake/${PROJECT_NAME}
+  NAMESPACE ${PROJECT_NAME}::
+  FILE ${COMPONENT_NAME}Config.cmake
+  COMPONENT ${COMPONENT_NAME}
+)
 

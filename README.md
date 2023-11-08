@@ -1,5 +1,22 @@
 # Calib
 
+# Usage
+
+## Dependencies
+1. opencv 4.+
+2. qt5
+
+## Clone
+```shell
+git clone --recurse-submodules https://github.com/Sologala/calib.git
+```
+## Build
+```shell
+mkdir build && cd build
+cmake ..
+make -j
+```
+
 # Core
 
 - 相机模型

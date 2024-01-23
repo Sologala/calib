@@ -1,36 +1,20 @@
-add_subdirectory(timer)
-add_subdirectory(logger)
-add_subdirectory(thread_pool)
-
 set(COMPONENT_NAME utils)
 
-add_library(${COMPONENT_NAME} INTERFACE)
+add_library(${COMPONENT_NAME} ./src/timer.cpp)
 add_library(${PROJECT_NAME}::${COMPONENT_NAME} ALIAS ${COMPONENT_NAME})
 
-target_include_directories(${COMPONENT_NAME} INTERFACE
-    $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/include>
-    $<INSTALL_INTERFACE:${PROJECT_NAME}>
-)
+target_include_directories(
+  ${COMPONENT_NAME} PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/include>
+                           $<INSTALL_INTERFACE:${PROJECT_NAME}>)
 
+# install(
+#   TARGETS ${COMPONENT_NAME}
+#   EXPORT ${COMPONENT_NAME}Config
+#   ARCHIVE
+#   LIBRARY COMPONENT ${COMPONENT_NAME})
 
-target_link_libraries(utils INTERFACE timer fmt thread_pool)
-
-
-install(
-  TARGETS ${COMPONENT_NAME}
-  EXPORT ${COMPONENT_NAME}Config
-  ARCHIVE
-  LIBRARY
-  COMPONENT ${COMPONENT_NAME}
-)
-
-install(DIRECTORY include DESTINATION ${PROJECT_NAME})
-
-install(
-  EXPORT ${COMPONENT_NAME}Config
-  DESTINATION lib/cmake/${PROJECT_NAME}
-  NAMESPACE ${PROJECT_NAME}::
-  FILE ${COMPONENT_NAME}Config.cmake
-  COMPONENT ${COMPONENT_NAME}
-)
-
+# install(DIRECTORY include DESTINATION ${PROJECT_NAME})
+#
+# install( EXPORT ${COMPONENT_NAME}Config DESTINATION lib/cmake/${PROJECT_NAME}
+# NAMESPACE ${PROJECT_NAME}:: FILE ${COMPONENT_NAME}Config.cmake COMPONENT
+# ${COMPONENT_NAME})

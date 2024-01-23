@@ -1,4 +1,0 @@
-[submodule "3rdparty/matplotlib-cpp"]
-	path = 3rdparty/matplotlib-cpp
-	url = https://github.com/Sologala/matplotlib-cpp.git
-	branch = fix_py3_subplot

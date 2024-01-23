@@ -1,4 +1,3 @@
-
 #pragma once
 
 #define LOGGER_SPDLOG

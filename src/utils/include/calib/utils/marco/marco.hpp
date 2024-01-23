@@ -17,8 +17,8 @@
 #include <memory>
 #define CALIB_MARCO_MAKE_SMART_PTR(className)                                                                          \
   public:                                                                                                              \
-    using Ptr = std::shared_ptr<className>;                                                                            \
-    using UPtr = std::unique_ptr<className>;
+    using Sptr = std::shared_ptr<className>;                                                                            \
+    using Uptr = std::unique_ptr<className>;
 
 // Make exception class marco
 //

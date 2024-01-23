@@ -7,7 +7,7 @@
 #include <calib/types/base/geometry.hpp>
 #include <calib/types/images.hpp>
 #include <deque>
-#include <fmt/core.h>
+#include <utils/logger/logger.h>
 #include <opencv2/aruco/charuco.hpp>
 #include <opencv2/aruco/dictionary.hpp>
 #include <opencv2/calib3d.hpp>
@@ -222,7 +222,7 @@ void detectCharucoBoardWithCalibration(cv::VideoCapture &cap)
                 }
                 double rms = cv::fisheye::stereoCalibrate(objpts, imgpts_left, imgpts_right, K1, D1, K2, D2,
                                                           {1280, 720}, R, t, cv::fisheye::CALIB_RECOMPUTE_EXTRINSIC);
-                fmt::println("rms is {}", rms);
+                LOGI("rms is {}", rms);
                 std::cout << K1 << std::endl;
                 std::cout << K2 << std::endl;
             }
@@ -242,14 +242,14 @@ int main(int argc, char *argv[])
     std::string output_path = parser.get<std::string>("output_path");
     if (!calib::filesys::file_exist(output_path))
     {
-        fmt::print("output folder {} is not exist, will create next", output_path);
+        LOGI("output folder {} is not exist, will create next", output_path);
         calib::filesys::makedir(output_path);
     }
 
     cv::VideoCapture cap(0);
     if (!cap.isOpened())
     {
-        fmt::print("capture 0 can not be opened\n");
+        LOGI("capture 0 can not be opened\n");
     }
     int cnt = 0;
 

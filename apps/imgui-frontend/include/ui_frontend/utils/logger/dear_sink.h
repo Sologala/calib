@@ -3,6 +3,7 @@
 
 #include <deque>
 #include <iostream>
+#include <chrono>
 #include <mutex>
 
 #include <calib/utils/logger/logger.h>
@@ -17,8 +18,8 @@ struct log_item
 
 namespace calib
 {
-const ImColor TXT_DBG_CLR{0.5f, 0.5f, 0.5f, 1.0f};
 
+const ImColor TXT_DBG_CLR{0.5f, 0.5f, 0.5f, 1.0f};
 const ImColor LVL_DBG_CLR{0.0f, 1.0f, 0.8f, 1.0f};
 const ImColor LVL_LOG_CLR{0.65f, 0.2f, 1.0f, 1.0f};
 const ImColor LVL_ERR_CLR{1.0f, 0.0f, 0.0f, 1.0f};
@@ -26,13 +27,12 @@ const ImColor LVL_WRN_CLR{1.0f, 0.5f, 0.0f, 1.0f};
 
 template <typename Mutex> class CalibSink : public spdlog::sinks::base_sink<Mutex>
 {
-
   public:
     CalibSink()
     {
     }
 
-    void draw_imgui(float posx = 5.0f, float posy = 5.0f, float width = 200.0f, float height = 1000.0f)
+    void Draw(float posx = 5.0f, float posy = 5.0f, float width = 200.0f, float height = 1000.0f)
     {
         /* ImGui::SetNextWindowPos({posx, posy}); */
         /* ImGui::SetNextWindowSize({width, height}); */
@@ -150,7 +150,7 @@ template <typename Mutex> class CalibSink : public spdlog::sinks::base_sink<Mute
         log_item it;
         it.message = std::string(msg.payload.data(), msg.payload.size());
         it.level = msg.level;
-        messages_.push_back(it);
+        messages_.emplace_back(it);
     }
     void flush_() override
     {
@@ -166,6 +166,5 @@ template <typename Mutex> class CalibSink : public spdlog::sinks::base_sink<Mute
 using Sinker = std::shared_ptr<CalibSink<std::mutex>>;
 const Sinker SinkerFactory();
 } // namespace calib
-
 
 #endif // __DEAR_SINK_H

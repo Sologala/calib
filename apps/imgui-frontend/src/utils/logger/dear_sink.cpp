@@ -5,7 +5,7 @@
 
 namespace calib
 {
-    const calib::Sinker dear_sink_mt()
+    const calib::Sinker SinkerFactory()
     {
         auto llog = spdlog::create<CalibSink<std::mutex>>(std::string("llog"));
 

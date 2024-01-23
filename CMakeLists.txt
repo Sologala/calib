@@ -59,14 +59,6 @@ set(OpenCV_DIR ${CMAKE_CURRENT_LIST_DIR}/3rdparty/scripts/opencv-build/build)
 find_package(OpenCV 4 REQUIRED)
 # find_package(Ceres 4 REQUIRED)
 
-# add_subdirectory(imgui-frontend)
- 
-add_executable(hhh aa.cpp)
-target_link_libraries(hhh PRIVATE Eigen3::Eigen core)
-
-# link_libraries(${OpenCV_LIBS})
-# # find_package(Ceres REQUIRED) find_package(Eigen3 REQUIRED)
-# # add_subdirectory(3rdparty)
 add_subdirectory(apps)
 add_subdirectory(src)
 add_subdirectory(test)

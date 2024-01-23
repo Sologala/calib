@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
     int height = 400;
     auto title = "log test";
 
-    const auto ssink = dear_sink_mt();
+    const auto ssink = calib::SinkerFactory();
 
     spdlog::info("info");
     spdlog::warn("info");

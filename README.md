@@ -4,11 +4,10 @@
 
 ## Dependencies
 1. opencv 4.+
-2. qt5
 
 ## Clone
 ```shell
-git clone --recurse-submodules https://github.com/Sologala/calib.git
+git clone https://github.com/Sologala/calib.git
 ```
 ## Build
 ```shell

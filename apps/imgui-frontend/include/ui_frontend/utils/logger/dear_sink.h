@@ -164,8 +164,8 @@ template <typename Mutex> class CalibSink : public spdlog::sinks::base_sink<Mute
     ImGuiTextFilter Filter;
 };
 using Sinker = std::shared_ptr<CalibSink<std::mutex>>;
+const Sinker SinkerFactory();
 } // namespace calib
 
-const calib::Sinker dear_sink_mt();
 
 #endif // __DEAR_SINK_H

@@ -52,28 +52,27 @@ int main(void)
 
         if (ImGui::IsItemHovered())
         {
-            canvas.m_zoom += ImGui::GetIO().MouseWheel;
-            canvas.m_zoom = std::max(1.0f, canvas.m_zoom);
-            canvas.m_zoom = std::min(50.0f, canvas.m_zoom);
-            if (ImGui::IsMouseDragging(ImGuiMouseButton_Right))
+            canvas.cam.m_zoom -= ImGui::GetIO().MouseWheel;
+            canvas.cam.m_zoom = std::max(1.0f, canvas.cam.m_zoom);
+            canvas.cam.m_zoom = std::min(50.0f, canvas.cam.m_zoom);
+            if (ImGui::IsMouseDragging(ImGuiMouseButton_Left))
             {
-                canvas.m_x_rot += (ImGui::GetIO().MouseDelta.y > 0 ? 1.f : -1.f) * 0.1 *
+                canvas.cam.m_x_rot += (ImGui::GetIO().MouseDelta.y > 0 ? 1.f : -1.f) * 0.1 *
                                   std::min(std::abs(ImGui::GetIO().MouseDelta.y), 50.f);
-                canvas.m_z_rot += (ImGui::GetIO().MouseDelta.x > 0 ? 1.f : -1.f) * 0.1 *
+                canvas.cam.m_z_rot += (ImGui::GetIO().MouseDelta.x > 0 ? 1.f : -1.f) * 0.1 *
                                   std::min(std::abs(ImGui::GetIO().MouseDelta.x), 50.f);
             }
-            if (ImGui::IsItemActive())
             {
-                if (ImGui::IsMouseDragging(ImGuiMouseButton_Left))
+                if (ImGui::IsMouseDragging(ImGuiMouseButton_Middle))
                 {
-                    canvas.m_x_trans += 0.03 * ImGui::GetIO().MouseDelta.x;
-                    canvas.m_y_trans -= 0.03 * ImGui::GetIO().MouseDelta.y;
+                    canvas.cam.m_x_trans += 0.03 * ImGui::GetIO().MouseDelta.x;
+                    canvas.cam.m_y_trans -= 0.03 * ImGui::GetIO().MouseDelta.y;
                 }
             }
         }
 
         ImGui::GetWindowDrawList()->AddImage((void *)canvas.texture, ImVec2(pos.x, pos.y),
-                                             ImVec2(pos.x + canvas.fb_width, pos.y + canvas.fb_height), ImVec2(0, 1),
+                                             ImVec2(pos.x + canvas.fb_width, pos.y + canvas.cam.fb_height), ImVec2(0, 1),
                                              ImVec2(1, 0));
         ImGui::End();
 

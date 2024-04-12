@@ -18,14 +18,14 @@ class Shader
 
     // constructor generates the shader on the fly
     // ------------------------------------------------------------------------
-    Shader(const std::string &vs_path, const std::string &fs_path)
+    Shader(const std::string &vs_str, const std::string &fs_str)
     {
         glGenVertexArrays(1, &vao);
         glGenBuffers(1, &vbo);
         glGenBuffers(1, &ebo);
         // 1. retrieve the vertex/fragment source code from filePath
-        std::string vs_str = LoadShaderFile(vs_path);
-        std::string fs_str = LoadShaderFile(fs_path);
+        /* std::string vs_str = LoadShaderFile(vs_path); */
+        /* std::string fs_str = LoadShaderFile(fs_path); */
         /* LOGI(vs_str); */
         /* LOGI(vs_str); */
 

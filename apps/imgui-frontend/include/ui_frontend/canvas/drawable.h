@@ -6,7 +6,7 @@ class Drawable : public Shader
 {
     CALIB_MARCO_MAKE_SMART_PTR(Drawable)
   public:
-    Drawable(const std::string &vs_path, const std::string &fs_path) : Shader(vs_path, fs_path)
+    Drawable(const std::string &vs_str, const std::string &fs_str) : Shader(vs_str, fs_str)
     {
     }
 

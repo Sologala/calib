@@ -18,7 +18,9 @@ endif()
 
 include(${CMAKE_CURRENT_BINARY_DIR}/cmake/CPM.cmake)
 
-include(./cmake/eigen_fetch_compile.cmake)
+# include(./cmake/eigen_fetch_compile.cmake)
+find_package(Eigen3 REQUIRED)
+link_libraries(Eigen3::Eigen)
 
 # cmake-format: off
 CPMAddPackage(

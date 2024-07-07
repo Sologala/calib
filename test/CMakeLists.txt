@@ -1,6 +1,7 @@
 link_libraries(core utils)
 link_libraries(gtest gtest_main gmock)
 add_executable(test_logger ./test_logger.cpp)
+add_executable(test_cam_type ./test_cam_type.cpp)
 
 # add_executable(test_capture ./capture.cpp)
 # add_executable(test_stereo ./test_cv_stereo_matching.cpp)

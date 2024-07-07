@@ -3,6 +3,8 @@
 #include <gtest/gtest.h>
 #include <timer.hpp>
 #include <opencv2/highgui.hpp>
+#include <calib/sensors/cam/cam.hpp>
+
 TEST(calib, timer)
 {
     {
